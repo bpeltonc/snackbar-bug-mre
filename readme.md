@@ -17,7 +17,7 @@ This app is a managed Expo app with React Native Paper and minimal dependencies 
 
 ### Build and run the app
 
-`npx expo run:ios`
+`npx expo run:android`
 
 ### Actual behavior
 
