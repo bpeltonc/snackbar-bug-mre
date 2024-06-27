@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View } from "react-native";  
+import { Button, PaperProvider, Snackbar, Text } from "react-native-paper";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [isSnackbarVisible, setIsSnackbarVisible] = React.useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return (
+    <PaperProvider>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", marginVertical: 50 }}> 
+        <Button mode="contained" onPress={() => setIsSnackbarVisible((prev) => !prev)}>Toggle Snackbar</Button>
+        <Text>Snackbar is {isSnackbarVisible ? "visible" : "hidden"}</Text>
+        <Snackbar visible={isSnackbarVisible} onDismiss={() => {}}>I'm a snackbar!</Snackbar>
+      </View>
+    </PaperProvider>
+  )
+}
